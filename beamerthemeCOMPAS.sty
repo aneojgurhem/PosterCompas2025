@@ -1,30 +1,39 @@
 \ProvidesPackage{beamerthemeCOMPAS}
 \mode<presentation>
 
-\pgfmathsetmacro\bleuCOMPASR{32/255}
-\pgfmathsetmacro\bleuCOMPASG{50/255}
-\pgfmathsetmacro\bleuCOMPASB{142/255}
-\pgfmathsetmacro\rougeCOMPASR{227/255}
-\pgfmathsetmacro\rougeCOMPASG{27/255}
-\pgfmathsetmacro\rougeCOMPASB{39/255}
+%% \pgfmathsetmacro\bleuCOMPASR{0/255}
+%% \pgfmathsetmacro\bleuCOMPASG{157/255}
+%% \pgfmathsetmacro\bleuCOMPASB{224/255}
+%% \pgfmathsetmacro\brownCOMPASR{59/255}
+%% \pgfmathsetmacro\brownCOMPASG{28/255}
+%% \pgfmathsetmacro\brownCOMPASB{19/255}
+
+\pgfmathsetmacro\bleuCOMPASR{59/255}
+\pgfmathsetmacro\bleuCOMPASG{28/255}
+\pgfmathsetmacro\bleuCOMPASB{19/255}
+\pgfmathsetmacro\brownCOMPASR{0/255}
+\pgfmathsetmacro\brownCOMPASG{157/255}
+\pgfmathsetmacro\brownCOMPASB{224/255}
+
+
 \definecolor{bleuCOMPAS}{rgb}{\bleuCOMPASR,\bleuCOMPASG,\bleuCOMPASB}
-\definecolor{rougeCOMPAS}{rgb}{\rougeCOMPASR,\rougeCOMPASG,\rougeCOMPASB}
+\definecolor{brownCOMPAS}{rgb}{\brownCOMPASR,\brownCOMPASG,\brownCOMPASB}
 
 \setbeamerfont{footline}{size=\large,series=\tt}
 \setbeamerfont{block title}{size=\large,series=\bf}
 
 \setbeamercolor{background canvas}{bg=bleuCOMPAS!5}
-\setbeamercolor{headline}{bg=white,fg=rougeCOMPAS}
-\setbeamercolor{footline}{bg=white,fg=rougeCOMPAS}
+\setbeamercolor{headline}{bg=white,fg=brownCOMPAS}
+\setbeamercolor{footline}{bg=white,fg=brownCOMPAS}
 \setbeamercolor{separation line}{bg=bleuCOMPAS}
-\setbeamercolor{framesubtitle}{fg=bleuCOMPAS, bg=rougeCOMPAS}
+\setbeamercolor{framesubtitle}{fg=bleuCOMPAS, bg=brownCOMPAS}
 \setbeamercolor{title in head/foot}{fg=black, bg=white}
-\setbeamercolor{author in head/foot}{fg=rougeCOMPAS, bg=white}
+\setbeamercolor{author in head/foot}{fg=brownCOMPAS, bg=white}
 \setbeamercolor{normal text}{fg=black, bg=white}
 \setbeamercolor{block title}{fg=white,bg=bleuCOMPAS}
 \setbeamercolor{block body}{fg=black, bg=white}
 \setbeamercolor{block alerted title}{fg=white,bg=bleuCOMPAS}
-\setbeamercolor{block alerted body}{fg=rougeCOMPAS,bg=white}
+\setbeamercolor{block alerted body}{fg=brownCOMPAS,bg=white}
 \setbeamercolor{upper separation line head}{fg=bleuCOMPAS}
 
 \setbeamertemplate{itemize items}[triangle]
@@ -114,13 +123,6 @@
     \hfill
     \includegraphics[height=4em]{logo/logo_INP.png}
     \hfill
-    {
-    \ifinria
-      \includegraphics[height=4em]{logo/logo_Inria.jpg}
-      \hfill
-    \else
-    \fi
-    }
     \includegraphics[height=4em]{logo/logo_EDMI.png}
     \vskip1ex
   \end{beamercolorbox}
