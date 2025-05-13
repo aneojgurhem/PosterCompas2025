@@ -1,6 +1,6 @@
 Thank you for using this template for your COMPAS 2025 poster submission!
 
-Getting Started: 
+Getting Started:
 
 * Edit only the main.tex file — this is where you'll write your poster
    content.
@@ -16,6 +16,6 @@ You’ll find an example.tex file in the repository, which contains a
 fictional poster. Feel free to use it as inspiration for structure,
 formatting, and layout ideas.
 
-For any questions, please contact stojche.nakov@inria.fr.
+For any questions, please contact [compas-2025-posters@inria.fr](mailto:compas-2025-posters@inria.fr).
 
-Happy postering! 
+Happy postering!
