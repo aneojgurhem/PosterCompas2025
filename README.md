@@ -1,4 +1,4 @@
-Participants presenting a poster at [Compas 2025](https://2025.compas-conference.fr/) have the *option* to delegate the printing and setup of their poster to the organizers. Those who choose this option must use the template available [here](https://gitlab.inria.fr/compas2025/poster) and submit their poster to [compas-2025-posters@inria.fr](mailto:compas-2025-posters@inria.fr) by **June 8**.
+If you are presenting a poster at [Compas 2025](https://2025.compas-conference.fr/), you have the *option* to delegate the printing and on-site setup of your poster to the organizers. To do so, please use the official template provided [here](https://gitlab.inria.fr/compas2025/poster) and send your finalized poster (PDF format) to [compas-2025-posters@inria.fr](mailto:compas-2025-posters@inria.fr) by **June 8**.
 
 # Getting Started
 
