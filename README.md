@@ -1,21 +1,48 @@
-Thank you for using this template for your COMPAS 2025 poster submission!
+[Compas 2025](https://2025.compas-conference.fr/) offers the *option*
+for participants presenting a poster to take in charge its printing
+and setup for the session. For those who choose this option, the
+template provided [here](https://gitlab.inria.fr/compas2025/poster)
+should be used.
 
-Getting Started:
+# Getting Started
 
-* Edit only the main.tex file — this is where you'll write your poster
+* Edit only the [main.tex](./main.tex) file — this is where you'll write your poster
    content.
 
-* Place all figures in the fig/ directory.  There's no need to include
-   the fig/ prefix when referencing figures in your LaTeX code — it's
+* Place all figures in the [fig/](./fig) directory.  There's no need to include
+   the `fig/` prefix when referencing figures in your LaTeX code — it's
    handled automatically.
 
-* Use the provided \p*{} macros to specify the title, authors,
+* Use the provided `\p*{}` macros to specify the title, authors,
    affiliations, and other metadata.
 
-You’ll find an example.tex file in the repository, which contains a
+You’ll find an [example.tex](./example.tex) file in the repository, which contains a
 fictional poster. Feel free to use it as inspiration for structure,
 formatting, and layout ideas.
 
+Happy postering!
+
+# Contact
+
 For any questions, please contact [compas-2025-posters@inria.fr](mailto:compas-2025-posters@inria.fr).
 
-Happy postering!
+# Compas 2025 Poster Committees
+
+## Organization
+
+- Stojche Nakov ([Inria](https://www.inria.fr/))
+- Laure Bourgois ([Inria Academy](https://www.inria-academy.fr/))
+- Olga  Kieffer ([Inria Academy](https://www.inria-academy.fr/))
+
+<!-- ## Jury -->
+
+# Acknowledgement
+
+The poster session is supported by [Inria Academy](https://www.inria-academy.fr/) and  [EuroCC 2](https://eurohpc-ju.europa.eu/research-innovation/our-projects/eurocc-2_en).
+
+
+
+
+<!-- Local Variables: -->
+<!-- jinx-languages: "en" -->
+<!-- End: -->
