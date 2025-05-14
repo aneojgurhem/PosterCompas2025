@@ -36,9 +36,6 @@ For any questions, please contact [compas-2025-posters@inria.fr](mailto:compas-2
 
 The poster session is supported by [Inria Academy](https://www.inria-academy.fr/) and  [EuroCC 2](https://eurohpc-ju.europa.eu/research-innovation/our-projects/eurocc-2_en).
 
-
-
-
 <!-- Local Variables: -->
 <!-- jinx-languages: "en" -->
 <!-- End: -->
