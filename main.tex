@@ -1,18 +1,179 @@
-\def\ptitle{} % Title
-\def\pauthor{} % Author
+\def\ptitle{ArmoniK : une solution open source pour l'orchestration et la distribution de calculs} % Title
+\def\pauthor{Jérôme Gurhem} % Author
 \def\pcollaborators{} % Advisors
-\def\pteam{} % Team
-\def\pinstitute{} % Affiliation
+\def\pteam{Wilfried Kirschenmann} % Team
+\def\pinstitute{Aneo, Boulogne-Billancourt, France} % Affiliation
 \def\pdate{Jeudi 26 Juin, 2025} % Date
-\def\plogo{blank.png} % Logo of your institution
+\def\plogo{fig/logo/logo_aneo.png} % Logo of your institution
 
 \input{boilerplateCOMPAS}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, backgrounds, shapes, arrows.meta}
 
 \graphicspath{{./fig/}} % Figures and logos directory
 \setlength{\columnheight}{588ex} % Tweak this value if columns are too long/short (should be okay with 588ex)
 
-\begin{document}
-\begin{frame}
+\definecolor{pykeyword}{rgb}{0.25, 0.3, 0.85}
+\definecolor{pycomment}{rgb}{0.0, 0.6, 0.0}
+\definecolor{pystring}{rgb}{0.65, 0.1, 0.1}
+\definecolor{codebg}{rgb}{0.97, 0.97, 0.97}
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\color{pykeyword}\bfseries,
+  commentstyle=\color{pycomment}\itshape,
+  stringstyle=\color{pystring},
+  backgroundcolor=\color{codebg},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{gray},
+  tabsize=2,
+  morekeywords={self}, % highlight custom keywords
+}
 
+\lstset{style=pythonstyle}
+
+
+
+\begin{document}
+\begin{frame}[fragile]
+    \begin{block}{ArmoniK Positionning in HPC}
+    \centering
+    \includegraphics[width=.9\textwidth]{hpc-orchestrators.png}            
+    \end{block}
+  \begin{columns}
+    \begin{column}{.49\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.95\textwidth}
+          \parbox[t][\columnheight]{\textwidth}{
+            
+            \begin{block}{A Serverless Many-Task Computing Platform}
+                \begin{alertblock}{Serverless}
+                \begin{quote}
+                    Cloud service category in which the customer can use different cloud capabilities types
+                    without the customer having to provision, deploy and manage either hardware or software
+                    resources, other than providing customer application code or providing customer data.
+                    \\
+                    --- ISO 22123-2:2023
+                \end{quote}
+                \end{alertblock}
+                \begin{alertblock}{Many-Task Computing}
+                \begin{quote}
+                    Approach that aims to bridge the gap between High-Perfomance Computing and High-Throughput Computing.
+                    \\
+                    --- Wikipedia
+                \end{quote}
+                \end{alertblock}         
+            \end{block}
+            
+            % \begin{block}{Simplified Architecture}
+            % \centering
+            % \input{armonik_architecture.tex}
+            % \end{block}
+
+            \begin{block}{Task Definition in ArmoniK}
+            \lstinputlisting[language=Python]{task-based-programming.py}
+            \end{block}
+
+            \begin{block}{Dynamic Graph}
+            \begin{itemize}
+                \item Dependency graph is not fully known when scheduling starts
+                \item Submissions can happen anytime
+                \item Tasks can submit new tasks
+                \item Tasks can delegate the production of their output to their new tasks
+            \end{itemize}
+            \begin{columns}[T]
+            \begin{column}{0.3\textwidth}
+                \centering
+                \vspace{1cm}
+                \vfill
+                \includegraphics[width=0.95\textwidth]{mermaid-dynamic-part1.png}
+            \end{column}
+            \begin{column}{0.05\textwidth}
+                \centering
+                \vspace{1.7cm}
+                \vfill
+                $\Rightarrow$
+            \end{column}
+            \begin{column}{0.65\textwidth}
+                \centering
+                \footnotesize
+                \includegraphics[width=0.95\textwidth]{mermaid-dynamic-part2.png}
+            \end{column}
+            \end{columns}
+            \end{block}
+
+            \begin{block}{Dynamic Graph Example}
+            \lstinputlisting[language=Python]{subtasking.py}
+            \end{block}
+
+          }
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}
+    \begin{column}{.49\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.95\textwidth}
+          \parbox[t][\columnheight]{\textwidth}{
+            
+            \begin{block}{Task-based Programming in ArmoniK}
+            
+                \begin{itemize}
+                \item Expression of complex data-driven dependencies
+                \item ArmoniK's \textbf{distributed scheduler} responsible for:
+                \begin{itemize}
+                    \item Task distribution and load balancing
+                    \item Dependency resolution
+                    \item Tasks execution
+                    \item Data management (overlapping, prefetching, and checkpointing)
+                \end{itemize}
+                \end{itemize}
+            \end{block}
+            
+
+
+            \begin{block}{Computations/Comm Overlapping}
+                \begin{itemize}
+                \item ArmoniK is responsible for tasks input and output data management
+                \item Allows for automatic communication + scheduling/task execution overlapping
+                \item Automatic Uncoordinated Checkpointing
+                \item Data communications through global storage
+                \end{itemize}
+                \vspace{3ex}
+                \includegraphics[width=0.8\textwidth]{armonik_pipelining.pdf}
+            \end{block}
+
+
+            \begin{block}{Main features}
+                \begin{itemize}
+                \item \textbf{Observability}: Understanding of the internal state of a system based solely on its external outputs
+                \begin{itemize}
+                    \item GUIs, CLIs, monitoring APIs, metrics, logs, and traces
+                \end{itemize}
+                \item \textbf{Portability}: Effort to transfer an application from one environment to another
+                \begin{itemize}
+                    \item Officially supported languages: C\#, C++, Python, Rust, Java, and JavaScript
+                    \item Tasks on different architectures (x86, ARM, GPU, Linux, Windows), applications, environments
+                \end{itemize}
+                \item \textbf{Fault Tolerance}: Ability to continue functioning without interruption when one or more nodes fail
+                \begin{itemize}
+                    \item Allow support for preemptible computing resources
+                    \item Error management at the task level
+                \end{itemize}
+                \item \textbf{Malleability}: Dynamic reconfiguration of the number of allocated resources during execution without interruption
+                \item \textbf{Resource Sharing}: Share resources between applications to execute as many as possible at the same
+                \item \textbf{Modularity}: Modules can be swapped without modifying ArmoniK's code to suit user neeeds and constraints
+                \end{itemize}
+            \end{block}
+
+          }
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}
+  \end{columns}
+  \vskip1ex
 \end{frame}
 \end{document}
