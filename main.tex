@@ -1,4 +1,4 @@
-\def\ptitle{ArmoniK : une solution open source pour l'orchestration et la distribution de calculs} % Title
+\def\ptitle{ArmoniK : An Open-Source Solution for Computation Orchestration and Distribution} % Title
 \def\pauthor{Jérôme Gurhem} % Author
 \def\pcollaborators{} % Advisors
 \def\pteam{Wilfried Kirschenmann} % Team
@@ -10,10 +10,11 @@
 
 \usepackage{listings}
 \usepackage{tikz}
+\usepackage{svg}
 \usetikzlibrary{positioning, fit, backgrounds, shapes, arrows.meta}
 
 \graphicspath{{./fig/}} % Figures and logos directory
-\setlength{\columnheight}{588ex} % Tweak this value if columns are too long/short (should be okay with 588ex)
+\setlength{\columnheight}{700ex} % Tweak this value if columns are too long/short (should be okay with 588ex)
 
 \definecolor{pykeyword}{rgb}{0.25, 0.3, 0.85}
 \definecolor{pycomment}{rgb}{0.0, 0.6, 0.0}
@@ -40,43 +41,69 @@
 
 \begin{document}
 \begin{frame}[fragile]
-    \begin{block}{ArmoniK Positionning in HPC}
-    \centering
-    \includegraphics[width=.9\textwidth]{hpc-orchestrators.png}            
-    \end{block}
-  \begin{columns}
+
+  \begin{columns}[T]
     \begin{column}{.49\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.95\textwidth}
-          \parbox[t][\columnheight]{\textwidth}{
-            
-            \begin{block}{A Serverless Many-Task Computing Platform}
-                \begin{alertblock}{Serverless}
-                \begin{quote}
-                    Cloud service category in which the customer can use different cloud capabilities types
-                    without the customer having to provision, deploy and manage either hardware or software
-                    resources, other than providing customer application code or providing customer data.
-                    \\
-                    --- ISO 22123-2:2023
-                \end{quote}
-                \end{alertblock}
-                \begin{alertblock}{Many-Task Computing}
-                \begin{quote}
-                    Approach that aims to bridge the gap between High-Perfomance Computing and High-Throughput Computing.
-                    \\
-                    --- Wikipedia
-                \end{quote}
-                \end{alertblock}         
+        \begin{minipage}[T]{.96\textwidth}
+            \begin{block}{Context}
+              In a world of ever-growing needs for High-Performance Computing (HPC) and massive data processing, \textbf{ArmoniK} provides an Open-Source, scalable platform for executing distributed workloads efficiently on heterogeneous infrastructures.
             \end{block}
-            
-            % \begin{block}{Simplified Architecture}
-            % \centering
-            % \input{armonik_architecture.tex}
-            % \end{block}
+        \end{minipage}
+      \end{beamercolorbox}
+      \vfill
+    \end{column}
+    \begin{column}{.49\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.96\textwidth}
+              \begin{block}{Objectives}
+                \begin{itemize}
+                  \item Simplify the development and deployment of distributed computing applications
+                  \item Maximize resource utilization across private/public clouds and HPC clusters
+                  \item Provide a high-level abstraction for developers
+                \end{itemize}
+              \end{block}
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}
+  \end{columns}
 
-            \begin{block}{Task Definition in ArmoniK}
-            \lstinputlisting[language=Python]{task-based-programming.py}
+  \begin{block}{ArmoniK Positionning in HPC}
+    \centering
+    \includegraphics[width=.85\textwidth]{hpc-orchestrators.png}            
+  \end{block}
+
+  \begin{columns}[T]
+    \begin{column}{.49\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.96\textwidth}
+            % \begin{block}{A Serverless Many-Task Computing Platform}
+            %     \begin{alertblock}{Serverless}
+            %     \begin{quote}
+            %         Cloud service category in which the customer can use different cloud capabilities types
+            %         without the customer having to provision, deploy and manage either hardware or software
+            %         resources, other than providing customer application code or providing customer data.
+            %         \\
+            %         --- ISO 22123-2:2023
+            %     \end{quote}
+            %     \end{alertblock}
+            %     \begin{alertblock}{Many-Task Computing}
+            %     \begin{quote}
+            %         Approach that aims to bridge the gap between High-Perfomance Computing and High-Throughput Computing.
+            %         \\
+            %         --- Wikipedia
+            %     \end{quote}
+            %     \end{alertblock}         
+            % \end{block}
+            
+            \begin{block}{Simplified Architecture}
+            \centering
+            \includegraphics[scale=1.5]{armonik_architecture.pdf}
             \end{block}
+
+            % \begin{block}{Task Definition in ArmoniK}
+            % \lstinputlisting[language=Python]{task-based-programming.py}
+            % \end{block}
 
             \begin{block}{Dynamic Graph}
             \begin{itemize}
@@ -100,41 +127,36 @@
             \end{column}
             \begin{column}{0.65\textwidth}
                 \centering
-                \footnotesize
                 \includegraphics[width=0.95\textwidth]{mermaid-dynamic-part2.png}
             \end{column}
             \end{columns}
             \end{block}
 
-            \begin{block}{Dynamic Graph Example}
-            \lstinputlisting[language=Python]{subtasking.py}
+            \begin{block}{Performance \& Scalability}
+            \begin{itemize}
+                \item Efficient task retry on failure
+                \item Load-aware scheduling
+                \item Linear scalability on real workloads
+                \item Optimal resource usage on hybrid clusters
+                \item Indep : independent tasks workload
+                \item  Graph : nested fork-join workload
+            \end{itemize}
+            \begin{figure}
+              \centering
+              \includegraphics[width=0.8\textwidth]{bench_scalability.pdf}
+            \end{figure}
             \end{block}
 
-          }
+            % \begin{block}{Dynamic Graph Example}
+            % \lstinputlisting[language=Python]{subtasking.py}
+            % \end{block}
         \end{minipage}
       \end{beamercolorbox}
     \end{column}
     \begin{column}{.49\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.95\textwidth}
-          \parbox[t][\columnheight]{\textwidth}{
+        \begin{minipage}[T]{.96\textwidth}
             
-            \begin{block}{Task-based Programming in ArmoniK}
-            
-                \begin{itemize}
-                \item Expression of complex data-driven dependencies
-                \item ArmoniK's \textbf{distributed scheduler} responsible for:
-                \begin{itemize}
-                    \item Task distribution and load balancing
-                    \item Dependency resolution
-                    \item Tasks execution
-                    \item Data management (overlapping, prefetching, and checkpointing)
-                \end{itemize}
-                \end{itemize}
-            \end{block}
-            
-
-
             \begin{block}{Computations/Comm Overlapping}
                 \begin{itemize}
                 \item ArmoniK is responsible for tasks input and output data management
@@ -146,30 +168,44 @@
                 \includegraphics[width=0.8\textwidth]{armonik_pipelining.pdf}
             \end{block}
 
-
             \begin{block}{Main features}
                 \begin{itemize}
-                \item \textbf{Observability}: Understanding of the internal state of a system based solely on its external outputs
-                \begin{itemize}
-                    \item GUIs, CLIs, monitoring APIs, metrics, logs, and traces
-                \end{itemize}
-                \item \textbf{Portability}: Effort to transfer an application from one environment to another
+                \item \textbf{Observability}: GUIs, CLIs, monitoring APIs, metrics, logs, and traces to understand of the state of the system
+                \item \textbf{Portability}: Easy to transfer an application from one environment to another
                 \begin{itemize}
                     \item Officially supported languages: C\#, C++, Python, Rust, Java, and JavaScript
                     \item Tasks on different architectures (x86, ARM, GPU, Linux, Windows), applications, environments
                 \end{itemize}
-                \item \textbf{Fault Tolerance}: Ability to continue functioning without interruption when one or more nodes fail
+                \item \textbf{Fault Tolerance}: Functions without interruption even when one or more nodes fail
                 \begin{itemize}
                     \item Allow support for preemptible computing resources
                     \item Error management at the task level
                 \end{itemize}
-                \item \textbf{Malleability}: Dynamic reconfiguration of the number of allocated resources during execution without interruption
-                \item \textbf{Resource Sharing}: Share resources between applications to execute as many as possible at the same
+                \item \textbf{Malleability}: Support dynamic reconfiguration of the number of allocated resources during execution without interruption
+                \item \textbf{Resource Sharing}: Allows sharing resources between applications to execute as many as possible at the same
                 \item \textbf{Modularity}: Modules can be swapped without modifying ArmoniK's code to suit user neeeds and constraints
                 \end{itemize}
             \end{block}
 
-          }
+            \begin{block}{Use Cases}
+            \begin{itemize}
+                \item Scientific simulation
+                \item Bioinformatics pipelines
+                \item Financial Monte Carlo workloads
+                \item Large-scale data analytics
+            \end{itemize}
+            \end{block}
+
+            \begin{block}{Conclusion}
+              \begin{itemize}
+                \item ArmoniK simplifies the development of distributed computing applications.
+                \item It ensures efficient execution on clouds and HPC clusters through smart orchestration.
+                \item Developers benefit from a high-level abstraction and multi-language SDKs.
+                \item Its modular, scalable architecture adapts to changing workloads.
+                \item Integrated observability guarantees reliability and performance.
+                \item ArmoniK enables the next generation of high-performance, data-intensive computing.
+              \end{itemize}
+            \end{block}
         \end{minipage}
       \end{beamercolorbox}
     \end{column}
