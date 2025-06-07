@@ -72,7 +72,7 @@
   \begin{minipage}[T]{.975\textwidth}
   \begin{block}{ArmoniK Positionning in HPC}
     \centering
-    \includegraphics[width=.85\textwidth]{hpc-orchestrators.png}            
+    \includegraphics[width=.8\textwidth]{armonik_framework.pdf}
   \end{block}
   \end{minipage}
   \end{center}
@@ -116,24 +116,10 @@
                 \item Tasks can submit new tasks
                 \item Tasks can delegate the production of their output to their new tasks
             \end{itemize}
-            \begin{columns}[T]
-            \begin{column}{0.3\textwidth}
-                \centering
-                \vspace{1cm}
-                \vfill
-                \includegraphics[width=0.95\textwidth]{mermaid-dynamic-part1.png}
-            \end{column}
-            \begin{column}{0.05\textwidth}
-                \centering
-                \vspace{1.7cm}
-                \vfill
-                $\Rightarrow$
-            \end{column}
-            \begin{column}{0.65\textwidth}
-                \centering
-                \includegraphics[width=0.95\textwidth]{mermaid-dynamic-part2.png}
-            \end{column}
-            \end{columns}
+            \centering
+            \vspace{1cm}
+            \vfill
+            \includegraphics[width=0.85\textwidth]{subtasking.pdf}
             \end{block}
 
             \begin{block}{Performance \& Scalability}
@@ -143,7 +129,7 @@
                 \item Linear scalability on real workloads
                 \item Optimal resource usage on hybrid clusters
                 \item Indep : independent tasks workload
-                \item  Graph : nested fork-join workload
+                \item Graph : nested fork-join workload
             \end{itemize}
             \begin{figure}
               \centering
@@ -166,10 +152,10 @@
                 \item ArmoniK is responsible for tasks input and output data management
                 \item Allows for automatic communication + scheduling/task execution overlapping
                 \item Automatic Uncoordinated Checkpointing
-                \item Data communications through global storage
                 \end{itemize}
                 \vspace{3ex}
-                \includegraphics[width=0.8\textwidth]{armonik_pipelining.pdf}
+                \centering
+                \includegraphics[width=0.9\textwidth]{pipelining_compare.png}
             \end{block}
 
             \begin{block}{Main features}
@@ -180,7 +166,7 @@
                     \item Officially supported languages: C\#, C++, Python, Rust, Java, and JavaScript
                     \item Tasks on different architectures (x86, ARM, GPU, Linux, Windows), applications, environments
                 \end{itemize}
-                \item \textbf{Fault Tolerance}: Functions without interruption even when one or more nodes fail
+                \item \textbf{Fault Tolerance}: Works without interruption even when one or more nodes fail
                 \begin{itemize}
                     \item Allow support for preemptible computing resources
                     \item Error management at the task level
