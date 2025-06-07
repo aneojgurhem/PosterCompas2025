@@ -1,10 +1,9 @@
 \def\ptitle{ArmoniK : An Open-Source Solution for Computation Orchestration and Distribution} % Title
 \def\pauthor{Jérôme Gurhem} % Author
-\def\pcollaborators{} % Advisors
-\def\pteam{Wilfried Kirschenmann} % Team
+\def\pcollaborators{Wilfried Kirschenmann} % Advisors
+\def\pteam{} % Team
 \def\pinstitute{Aneo, Boulogne-Billancourt, France} % Affiliation
 \def\pdate{Jeudi 26 Juin, 2025} % Date
-\def\plogo{fig/logo/logo_aneo.png} % Logo of your institution
 
 \input{boilerplateCOMPAS}
 
@@ -47,23 +46,29 @@
     \begin{column}{.49\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
         \begin{minipage}[T]{.96\textwidth}
-            \begin{block}{Context}
-              In a world of ever-growing needs for High-Performance Computing (HPC) and massive data processing, \textbf{ArmoniK} provides an Open-Source, scalable platform for executing distributed workloads efficiently on heterogeneous infrastructures.
+            \begin{block}{Objectives}
+              \begin{itemize}
+                \item Provide an Open-Source, scalable platform for executing distributed workloads efficiently on heterogeneous infrastructures
+                \item Simplify the development and deployment of distributed computing codes
+                \item Maximize resource utilization across private/public clouds and HPC clusters
+                \item Provide a high-level abstraction for developers
+              \end{itemize}
             \end{block}
-        \end{minipage}
+          \end{minipage}
       \end{beamercolorbox}
       \vfill
     \end{column}
     \begin{column}{.49\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
         \begin{minipage}[T]{.96\textwidth}
-              \begin{block}{Objectives}
-                \begin{itemize}
-                  \item Simplify the development and deployment of distributed computing codes
-                  \item Maximize resource utilization across private/public clouds and HPC clusters
-                  \item Provide a high-level abstraction for developers
-                \end{itemize}
-              \end{block}
+          \begin{block}{Key Benefits and Outcomes}
+            \begin{itemize}
+                \item Smart orchestration ensures efficient task execution at scale
+                \item Modular, elastic architecture adapts to workload variation
+                \item Built-in observability enables reliability and performance monitoring
+                \item Empowers the next generation of high-performance, data-intensive applications
+            \end{itemize}
+          \end{block}
         \end{minipage}
       \end{beamercolorbox}
     \end{column}
@@ -84,67 +89,20 @@
     \begin{column}{.49\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
         \begin{minipage}[T]{.96\textwidth}
-            % \begin{block}{A Serverless Many-Task Computing Platform}
-            %     \begin{alertblock}{Serverless}
-            %     \begin{quote}
-            %         Cloud service category in which the customer can use different cloud capabilities types
-            %         without the customer having to provision, deploy and manage either hardware or software
-            %         resources, other than providing customer application code or providing customer data.
-            %         \\
-            %         --- ISO 22123-2:2023
-            %     \end{quote}
-            %     \end{alertblock}
-            %     \begin{alertblock}{Many-Task Computing}
-            %     \begin{quote}
-            %         Approach that aims to bridge the gap between High-Perfomance Computing and High-Throughput Computing.
-            %         \\
-            %         --- Wikipedia
-            %     \end{quote}
-            %     \end{alertblock}         
-            % \end{block}
-
-            \begin{block}{Computations/Comm Overlapping}
-                \begin{itemize}
-                \item ArmoniK is responsible for tasks input and output data management
-                \item Allow for automatic communication + scheduling/task execution overlapping
-                \item Automatic Uncoordinated Checkpointing
-                \end{itemize}
-                \vspace{2ex}
-                \centering
-                \includegraphics[width=0.9\textwidth, trim={0 7cm 0 0}, clip]{pipelining AK 2.pdf}
-            \end{block}
+          \begin{block}{Dynamic Graph}
+          \begin{itemize}
+              \item Dependency graph is not fully known when scheduling starts
+              \item Submissions can happen anytime
+              \item Tasks can submit new tasks
+              \item Tasks can delegate the production of their output to their new tasks
+          \end{itemize}
+          \centering
+          \includesvg[width=0.7\textwidth, pretex=\relscale{0.65}]{subtasking.svg}
+          \end{block}
 
             % \begin{block}{Task Definition in ArmoniK}
             % \lstinputlisting[language=Python]{task-based-programming.py}
             % \end{block}
-
-            \begin{block}{Dynamic Graph}
-            \begin{itemize}
-                \item Dependency graph is not fully known when scheduling starts
-                \item Submissions can happen anytime
-                \item Tasks can submit new tasks
-                \item Tasks can delegate the production of their output to their new tasks
-            \end{itemize}
-            \centering
-            \vspace{1cm}
-            \vfill
-            \includesvg[width=0.85\textwidth]{subtasking.svg}
-            \end{block}
-
-            \begin{block}{Performance \& Scalability}
-            \begin{itemize}
-                \item Efficient task retry on failure
-                \item Load-aware scheduling
-                \item Linear scalability on real workloads
-                \item Optimal resource usage on hybrid clusters
-                \item Indep : independent tasks workload
-                \item Graph : nested fork-join workload
-            \end{itemize}
-            \begin{figure}
-              \centering
-              \includegraphics[width=0.8\textwidth]{bench_scalability.pdf}
-            \end{figure}
-            \end{block}
 
             % \begin{block}{Dynamic Graph Example}
             % \lstinputlisting[language=Python]{subtasking.py}
@@ -155,13 +113,7 @@
     \begin{column}{.49\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
         \begin{minipage}[T]{.96\textwidth}
-            
-            \begin{block}{Simplified Architecture}
-            \centering
-            \includesvg[width=\textwidth, pretex=\relscale{0.45}]{armonik_architecture.svg}
-            \end{block}
-
-            \begin{block}{Main features}
+            \begin{block}{Other features}
                 \begin{itemize}
                 \item \textbf{Observability}: GUIs, CLIs, monitoring APIs, metrics, logs, and traces to understand of the state of the system
                 \item \textbf{Portability}: Easy to transfer an application from one environment to another
@@ -174,34 +126,85 @@
                 \item \textbf{Modularity}: Modules can be swapped without modifying ArmoniK's code to suit user neeeds and constraints
                 \end{itemize}
             \end{block}
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}
+  \end{columns}
+  \vfill
 
+
+  \begin{columns}[T]
+    \begin{column}{.49\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.96\textwidth}
+          \begin{block}{Computations/Comm Overlapping}
+              \begin{itemize}
+              \item ArmoniK is responsible for tasks input and output data management
+              \item Allow for automatic communication + scheduling/task execution overlapping
+              \item Automatic Uncoordinated Checkpointing
+              \end{itemize}
+              \vspace{3ex}
+              \centering
+              \includegraphics[width=\textwidth, trim={0 6.5cm 0 0}, clip]{pipelining AK 2.pdf}
+          \end{block}
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}
+
+    \begin{column}{.49\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.96\textwidth}
             \begin{block}{Fault Tolerance}
               \begin{itemize}
               \item Works without interruption even when one or more nodes fail
               \item Allow support for preemptible computing resources
-              \item Automatic task retry on failure
+              \item Automatic and efficient task retry on failure
               \item Each curve represents a percentage of preempted instances
               \end{itemize}
               \begin{figure}
                 \centering
-                \includesvg[width=0.8\textwidth]{bench_preemption.svg}
+                \includesvg[width=0.75\textwidth]{bench_preemption.svg}
               \end{figure}
-            \end{block}
-
-            \begin{block}{Conclusion}
-              \begin{itemize}
-                \item ArmoniK simplifies the development of distributed computing applications.
-                \item It ensures efficient execution on clouds and HPC clusters through smart orchestration.
-                \item Developers benefit from a high-level abstraction and multi-language SDKs.
-                \item Its modular, scalable architecture adapts to changing workloads.
-                \item Integrated observability guarantees reliability and performance.
-                \item ArmoniK enables the next generation of high-performance, data-intensive computing.
-              \end{itemize}
             \end{block}
         \end{minipage}
       \end{beamercolorbox}
     \end{column}
   \end{columns}
+
+
+
+  \begin{center}
+  \begin{minipage}[T]{.975\textwidth}
+  \begin{block}{Performance \& Scalability}
+    \begin{columns}[T]
+      \begin{column}{.49\textwidth}
+      \begin{itemize}
+        \item Indep : independent tasks workload
+        \item Graph : nested fork-join workload
+      \end{itemize}
+      \begin{figure}
+      \centering
+      \includesvg[width=0.8\textwidth]{bench_scalability.svg}
+      \end{figure}
+      \end{column}
+
+      \begin{column}{.49\textwidth}
+      \begin{itemize}
+        \item Cumulative distribution functions (CDFs) of round-trip latency
+        \item Batched submissions of 1, 10, and 100 independent zero-work tasks
+      \end{itemize}
+      \begin{figure}
+      \centering
+      \includesvg[width=0.8\textwidth]{bench_roundtrip_latency.svg}
+      \end{figure}
+      \end{column}
+    \end{columns}
+
+  \end{block}
+  \end{minipage}
+  \end{center}
+  \vfill
+
   \vskip1ex
 \end{frame}
 \end{document}
