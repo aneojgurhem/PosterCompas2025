@@ -11,6 +11,7 @@
 \usepackage{listings}
 \usepackage{tikz}
 \usepackage{svg}
+\usepackage{relsize}
 \usetikzlibrary{positioning, fit, backgrounds, shapes, arrows.meta}
 
 \graphicspath{{./fig/}} % Figures and logos directory
@@ -58,7 +59,7 @@
         \begin{minipage}[T]{.96\textwidth}
               \begin{block}{Objectives}
                 \begin{itemize}
-                  \item Simplify the development and deployment of distributed computing applications
+                  \item Simplify the development and deployment of distributed computing codes
                   \item Maximize resource utilization across private/public clouds and HPC clusters
                   \item Provide a high-level abstraction for developers
                 \end{itemize}
@@ -99,10 +100,16 @@
             %     \end{quote}
             %     \end{alertblock}         
             % \end{block}
-            
-            \begin{block}{Simplified Architecture}
-            \centering
-            \includegraphics[scale=1.5]{armonik_architecture.pdf}
+
+            \begin{block}{Computations/Comm Overlapping}
+                \begin{itemize}
+                \item ArmoniK is responsible for tasks input and output data management
+                \item Allow for automatic communication + scheduling/task execution overlapping
+                \item Automatic Uncoordinated Checkpointing
+                \end{itemize}
+                \vspace{2ex}
+                \centering
+                \includegraphics[width=0.9\textwidth]{pipelining_compare.png}
             \end{block}
 
             % \begin{block}{Task Definition in ArmoniK}
@@ -119,7 +126,7 @@
             \centering
             \vspace{1cm}
             \vfill
-            \includegraphics[width=0.85\textwidth]{subtasking.pdf}
+            \includesvg[width=0.85\textwidth]{subtasking.svg}
             \end{block}
 
             \begin{block}{Performance \& Scalability}
@@ -147,15 +154,9 @@
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
         \begin{minipage}[T]{.96\textwidth}
             
-            \begin{block}{Computations/Comm Overlapping}
-                \begin{itemize}
-                \item ArmoniK is responsible for tasks input and output data management
-                \item Allows for automatic communication + scheduling/task execution overlapping
-                \item Automatic Uncoordinated Checkpointing
-                \end{itemize}
-                \vspace{3ex}
-                \centering
-                \includegraphics[width=0.9\textwidth]{pipelining_compare.png}
+            \begin{block}{Simplified Architecture}
+            \centering
+            \includesvg[width=\textwidth, pretex=\relscale{0.45}]{armonik_architecture.svg}
             \end{block}
 
             \begin{block}{Main features}
@@ -166,15 +167,23 @@
                     \item Officially supported languages: C\#, C++, Python, Rust, Java, and JavaScript
                     \item Tasks on different architectures (x86, ARM, GPU, Linux, Windows), applications, environments
                 \end{itemize}
-                \item \textbf{Fault Tolerance}: Works without interruption even when one or more nodes fail
-                \begin{itemize}
-                    \item Allow support for preemptible computing resources
-                    \item Error management at the task level
-                \end{itemize}
                 \item \textbf{Malleability}: Support dynamic reconfiguration of the number of allocated resources during execution without interruption
-                \item \textbf{Resource Sharing}: Allows sharing resources between applications to execute as many as possible at the same
+                \item \textbf{Resource Sharing}: Allow sharing resources between applications to execute as many as possible at the same
                 \item \textbf{Modularity}: Modules can be swapped without modifying ArmoniK's code to suit user neeeds and constraints
                 \end{itemize}
+            \end{block}
+
+            \begin{block}{Fault Tolerance}
+              \begin{itemize}
+              \item Works without interruption even when one or more nodes fail
+              \item Allow support for preemptible computing resources
+              \item Automatic task retry on failure
+              \item Each curve represents a percentage of preempted instances
+              \end{itemize}
+              \begin{figure}
+                \centering
+                \includesvg[width=0.8\textwidth]{bench_preemption.svg}
+              \end{figure}
             \end{block}
 
             \begin{block}{Conclusion}

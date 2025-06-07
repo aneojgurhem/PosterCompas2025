@@ -12,3 +12,4 @@ cache
 *.synctex.gz
 build
 *.vrb
+svg-inkscape
