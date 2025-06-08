@@ -11,6 +11,7 @@
 \usepackage{tikz}
 \usepackage{svg}
 \usepackage{relsize}
+\usepackage[most]{tcolorbox}
 \usetikzlibrary{positioning, fit, backgrounds, shapes, arrows.meta}
 
 \graphicspath{{./fig/}} % Figures and logos directory
@@ -43,9 +44,7 @@
 \begin{frame}[fragile]
 
   \begin{columns}[T]
-    \begin{column}{.49\textwidth}
-      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.96\textwidth}
+    \begin{column}{.47\textwidth}
             \begin{block}{Objectives}
               \begin{itemize}
                 \item Provide an Open-Source, scalable platform for executing distributed workloads efficiently on heterogeneous infrastructures
@@ -54,13 +53,8 @@
                 \item Provide a high-level abstraction for developers
               \end{itemize}
             \end{block}
-          \end{minipage}
-      \end{beamercolorbox}
-      \vfill
     \end{column}
-    \begin{column}{.49\textwidth}
-      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.96\textwidth}
+    \begin{column}{.47\textwidth}
           \begin{block}{Key Benefits and Outcomes}
             \begin{itemize}
                 \item Smart orchestration ensures efficient task execution at scale
@@ -68,15 +62,14 @@
                 \item Built-in observability enables reliability and performance monitoring
                 \item Empowers the next generation of high-performance, data-intensive applications
             \end{itemize}
+            \vspace{1.25cm}
           \end{block}
-        \end{minipage}
-      \end{beamercolorbox}
     \end{column}
   \end{columns}
-  \vfil
+  \vfill
 
   \begin{center}
-  \begin{minipage}[T]{.975\textwidth}
+  \begin{minipage}[T]{.97\textwidth}
   \begin{block}{ArmoniK Positionning in HPC}
     \centering
     \includegraphics[width=.8\textwidth]{armonik_framework.pdf}
@@ -86,9 +79,7 @@
   \vfill
 
   \begin{columns}[T]
-    \begin{column}{.49\textwidth}
-      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.96\textwidth}
+    \begin{column}{.47\textwidth}
           \begin{block}{Dynamic Graph}
           \begin{itemize}
               \item Dependency graph is not fully known when scheduling starts
@@ -99,20 +90,8 @@
           \centering
           \includesvg[width=0.7\textwidth, pretex=\relscale{0.65}]{subtasking.svg}
           \end{block}
-
-            % \begin{block}{Task Definition in ArmoniK}
-            % \lstinputlisting[language=Python]{task-based-programming.py}
-            % \end{block}
-
-            % \begin{block}{Dynamic Graph Example}
-            % \lstinputlisting[language=Python]{subtasking.py}
-            % \end{block}
-        \end{minipage}
-      \end{beamercolorbox}
     \end{column}
-    \begin{column}{.49\textwidth}
-      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.96\textwidth}
+    \begin{column}{.47\textwidth}
             \begin{block}{Other features}
                 \begin{itemize}
                 \item \textbf{Observability}: GUIs, CLIs, monitoring APIs, metrics, logs, and traces to understand of the state of the system
@@ -125,35 +104,28 @@
                 \item \textbf{Resource Sharing}: Allow sharing resources between applications to execute as many as possible at the same
                 \item \textbf{Modularity}: Modules can be swapped without modifying ArmoniK's code to suit user neeeds and constraints
                 \end{itemize}
+                \vspace{1cm}
             \end{block}
-        \end{minipage}
-      \end{beamercolorbox}
     \end{column}
   \end{columns}
-  \vfill
+  \vfill\vfill
 
 
   \begin{columns}[T]
-    \begin{column}{.49\textwidth}
-      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.96\textwidth}
+    \begin{column}{.47\textwidth}
           \begin{block}{Computations/Comm Overlapping}
               \begin{itemize}
               \item ArmoniK is responsible for tasks input and output data management
               \item Allow for automatic communication + scheduling/task execution overlapping
               \item Automatic Uncoordinated Checkpointing
               \end{itemize}
-              \vspace{3ex}
+              \vspace{3.4ex}
               \centering
               \includegraphics[width=\textwidth, trim={0 6.5cm 0 0}, clip]{pipelining AK 2.pdf}
           \end{block}
-        \end{minipage}
-      \end{beamercolorbox}
     \end{column}
 
-    \begin{column}{.49\textwidth}
-      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.96\textwidth}
+    \begin{column}{.47\textwidth}
             \begin{block}{Fault Tolerance}
               \begin{itemize}
               \item Works without interruption even when one or more nodes fail
@@ -161,49 +133,48 @@
               \item Automatic and efficient task retry on failure
               \item Each curve represents a percentage of preempted instances
               \end{itemize}
-              \begin{figure}
-                \centering
+              \begin{center}
+                \vspace{0.2ex}
                 \includesvg[width=0.75\textwidth]{bench_preemption.svg}
-              \end{figure}
+              \end{center}
             \end{block}
-        \end{minipage}
-      \end{beamercolorbox}
     \end{column}
   \end{columns}
-
+  \vfill
 
 
   \begin{center}
-  \begin{minipage}[T]{.975\textwidth}
-  \begin{block}{Performance \& Scalability}
+  %\begin{minipage}[T]{.97\textwidth}
+  %\begin{block}{Performance \& Scalability}
     \begin{columns}[T]
-      \begin{column}{.49\textwidth}
+      \begin{column}{.47\textwidth}
+      \begin{block}{Throughput Scalability}
       \begin{itemize}
         \item Indep : independent tasks workload
         \item Graph : nested fork-join workload
       \end{itemize}
-      \begin{figure}
-      \centering
-      \includesvg[width=0.8\textwidth]{bench_scalability.svg}
-      \end{figure}
+      \begin{center}
+         \includesvg[width=0.8\textwidth]{bench_scalability.svg} 
+      \end{center}
+      \end{block}
       \end{column}
 
-      \begin{column}{.49\textwidth}
+      \begin{column}{.47\textwidth}
+      \begin{block}{Low Round-trip Latency}
       \begin{itemize}
         \item Cumulative distribution functions (CDFs) of round-trip latency
         \item Batched submissions of 1, 10, and 100 independent zero-work tasks
       \end{itemize}
-      \begin{figure}
-      \centering
+      \begin{center}
       \includesvg[width=0.8\textwidth]{bench_roundtrip_latency.svg}
-      \end{figure}
+      \end{center}
+      \end{block}
       \end{column}
     \end{columns}
 
-  \end{block}
-  \end{minipage}
+  %\end{block}
+  %\end{minipage}
   \end{center}
-  \vfill
 
   \vskip1ex
 \end{frame}
